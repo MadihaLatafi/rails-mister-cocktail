@@ -1,0 +1,9 @@
+require 'json'
+require 'open-uri'
+
+url = "http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list"
+    unparsed_ingredients = open(url).read
+    ingredients = JSON.parse(unparsed_ingredients)
+    ingredients["drinks"].each do |key, value|
+      Ingredient.create(name: "#{value}")
+    end

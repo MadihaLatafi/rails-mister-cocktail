@@ -1,0 +1,25 @@
+<% content_for(:title) do %>
+ Madi's Shaker !
+ <% end %>
+ <% content_for(:description) do %>
+ "Welcome to Madi's Shaker ! <%= @cocktails.count %> cocktails to discover now!">
+ <% end %>
+
+<header class="grid">
+  <div class="content-wrap bg-image">
+    <h1> Welcome to Madi's Shaker ! <br> </h1>
+    <h2> <%= @cocktails.count %> cocktails to discover now </h2>
+  </div>
+</header>
+
+<div class="container grid">
+  <div class="row">
+    <ul>
+      <% @cocktails.each do |cocktail| %>
+      <li>
+          <%= render 'shared/card', resource: cocktail %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
